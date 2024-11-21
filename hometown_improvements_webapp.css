@@ -1,0 +1,37 @@
+/* Make Private messages more apparent in your notifications or elsewhere. Change the background and border colors to whatever floats your boat */
+.status__wrapper-direct [data-id]:has(.status__info .status__relative-time) {
+    background: #25a5be;
+    border: solid 1px #25a5be85;
+}
+/* I DETEST this thing where text for a post is turned into a link that takes you to that post, but now your whole timeline is gone and if you go backwards the "wrong" way there's a nonzero chance you've now lost your place in the timeline. This fixes that and also mildly highlights the text I'm hovering over (in dark mode, change antiquewhite to something that works for you here) */
+div.status__content.status__content--with-action:active {
+    pointer-events: none;
+}
+div.status__content.status__content--with-action:hover {
+    color: antiquewhite;
+}
+/* These just work with the above unlinkifier thing to make sure that polls and buttons/links etc. _within_ a post still work as expected */
+A,
+.poll,
+button {
+    pointer-events: all;
+}
+/* I forget what this does but I'm afraid to remove it */
+div.column {
+  border-style: ridge;
+}
+/* This little blob just makes it so the left and right arrows in the "mini gallery" thing are obvious */
+i.fa.fa-chevron-left.fa-fw, i.fa.fa-chevron-right.fa-fw {
+color: red;
+border-width: 5px;
+border-color: white
+}
+/* disable "preview" cropping */
+img {
+
+    object-fit: contain;
+}
+/* Here is how you don't have to see TFG's (or anyone's) ass-ugly face when someone boosts some dumb NYT (or other news, other other website that really wants you to see a picture from the website as an enticement to click) link into your feed */
+img.status-card__image-image {
+  display: none;
+}
